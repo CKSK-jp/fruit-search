@@ -15,8 +15,9 @@ window.addEventListener('DOMContentLoaded', () => {
 					results.push(fruit);
 				}
 			});
+			return results;
 		}
-		return results;
+		return [];
 	}
 
 	// main user input check, 
@@ -66,7 +67,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	function useSuggestion(e) {
 		selectedFruit = e.target.closest('li');
 		input.value = selectedFruit.innerText;
-		showSuggestions(search(''), text);
 		suggestions.classList.remove('has-suggestions');
 	}
 
