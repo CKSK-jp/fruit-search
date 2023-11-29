@@ -9,14 +9,13 @@ window.addEventListener('DOMContentLoaded', () => {
 		let results = [];
 		str = str.toLowerCase();
 		if (str !== '') {
-			console.log('search running on: ', str);
+			console.log('search running on:', str);
 			fruits.filter(fruit => {
 				if (fruit.toLowerCase().includes(str)) {
 					results.push(fruit);
 				}
 			});
 		}
-		console.log(results);
 		return results;
 	}
 
@@ -58,8 +57,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	//TODO: bug when dragging 
 	function useSuggestion(e) {
-		selectedFruit = e.target.innerText;
-		input.value = selectedFruit;
+		selectedFruit = e.target.closest('li');
+		input.value = selectedFruit.innerText;
 		showSuggestions(search(''), text);
 		suggestions.classList.remove('has-suggestions');
 	}
