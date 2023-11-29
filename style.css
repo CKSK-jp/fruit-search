@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Steelfish Rg', 'helvetica neue',
+    helvetica, arial, sans-serif;
+  font-weight: 800;
+  background-image: url(fruitbackground.png);
+  opacity: 0.8;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-border-image: auto;
+  -webkit-text-stroke: 2px black;
+}
+
+:focus {
+  display: block;
+}
+
+body {
+  background-image: linear-gradient(to bottom left, rgba(251, 251, 251, 0), rgb(224, 236, 92));
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 5px;
+  border: 3px solid rgb(0, 0, 0);
+  padding: 5px 5px 5px 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 600px;
+  min-height: 100px;
+  width: 70vh;
+  background-image: url(fruitbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  border-radius: 1rem;
+  padding: 20px;
+  margin-bottom: 200px;
+}
+
+.search-container input,
+.search-container .suggestions {
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(247, 247, 247), rgb(62, 217, 75));
+}
+
+.drop-down-container {
+  width: 60%;
+  height: auto;
+}
+
+.search-container .suggestions {
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  display: none;
+  padding: 10px;
+}
+
+ul.has-suggestions {
+  display: inline-block;
+  width: 100%;
+  max-height: 500px;
+  margin: 0px;
+  overflow-y: scroll;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li:hover {
+  background-color: lightgreen;
+}
+
+span {
+  font-weight: bold;
+}
+
+::placeholder{
+  color: rgb(37, 37, 37);
+  font-weight: bold;
+}
