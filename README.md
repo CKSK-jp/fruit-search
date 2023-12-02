@@ -6,3 +6,7 @@ Project: To create a search bar where the user is able to query different fruits
 - Hot-fixed user drag bug
 - UI improvements and responsiveness to browser
 - CSS clean-up of unused properties
+
+# Changelog - 2023-12-02
+- Refactored showSugggestions to use map instead of a for loop
+- Replace search input logic with a better condensed version

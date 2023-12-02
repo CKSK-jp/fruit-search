@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		str = str.toLowerCase();
 		if (str !== '') {
 			console.log('search running on:', str);
-			fruits.filter(fruit => {
+			fruits.filter((fruit) => {
 				if (fruit.toLowerCase().includes(str)) {
 					results.push(fruit);
 				}
@@ -20,20 +20,11 @@ window.addEventListener('DOMContentLoaded', () => {
 		return [];
 	}
 
-	// main user input check, 
+	// streamlined version v2
 	const searchHandler = (event) => {
-		text = event.target.value;
-		if (text === '') {
-			showSuggestions(search(''), text);
-			suggestions.classList.remove('has-suggestions');
-		}
-		if (event.key === 'Backspace' && text !== '') {
-			console.log('backspace pressed');
-			showSuggestions(search(text), text);
-		} else if (event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode === 32) {
-			console.log('valid key pressed');
-			showSuggestions(search(text), text);
-		}
+		const inputVal = event.currentTarget.value.trim();
+		const results = inputVal.length > 0 ? search(inputVal) : [];
+		showSuggestions(results, inputVal);
 	}
 
 	// render suggestions under input bar
@@ -45,23 +36,22 @@ window.addEventListener('DOMContentLoaded', () => {
 		if (results.length === 0) {
 			suggestions.classList.remove('has-suggestions');
 		}
-		for (let fruit of results) {
-			let checkedFruit = fruit.toLowerCase();
-			let fruitNode = document.createElement('li');
-			// use slice to insert span for bolding of search input
-			let spanStartIndex = checkedFruit.indexOf(inputText);
-			let spanEndIndex = spanStartIndex + inputText.length;
-			
+
+		results.map((fruit) => {
+			const checkedFruit = fruit.toLowerCase();
+			const fruitNode = document.createElement('li');
+			const spanStartIndex = checkedFruit.indexOf(inputText);
+			const spanEndIndex = spanStartIndex + inputText.length;
 			if (spanStartIndex === 0) {
 				fruitNode.innerHTML = '<span>' + fruit.slice(0, spanEndIndex) + '</span>' + fruit.slice(spanEndIndex);
-				suggestions.append(fruitNode);
 			} else {
 				fruitNode.innerHTML = fruit.slice(0, spanStartIndex) + '<span>' + inputText + '</span>' + fruit.slice(spanEndIndex);
-				suggestions.append(fruitNode);
 			}
+			suggestions.append(fruitNode);
 			suggestions.classList.add('has-suggestions');
-		}
+		});
 	}
+
 
 	// check for user selected suggestion
 	function useSuggestion(e) {
