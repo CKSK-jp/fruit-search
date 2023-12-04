@@ -96,10 +96,6 @@ ul li:hover {
   background-color: rgb(41, 230, 41);
 }
 
-span {
-  font-weight: bold;
-}
-
 ::placeholder {
   color: rgb(37, 37, 37);
   font-weight: bold;

@@ -15,3 +15,4 @@ Project: To create a search bar where the user is able to query different fruits
 - Uncessary empty input checks removed and simplified
 - Converted map to forEach()
 - Improved showSuggestions() and search() readability
+- Implemented better logic for boldInput()
