@@ -10,3 +10,8 @@ Project: To create a search bar where the user is able to query different fruits
 # Changelog - 2023-12-02
 - Refactored showSugggestions to use map instead of a for loop
 - Replace search input logic with a better condensed version
+
+# Changelog - 2023-12-04
+- Uncessary empty input checks removed and simplified
+- Converted map to forEach()
+- Improved showSuggestions() and search() readability
